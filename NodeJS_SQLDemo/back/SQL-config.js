@@ -8,14 +8,4 @@ let con=mysql.createConnection({
     database:"n" //注意:要填資料『庫』的名字
 })
 
-//實際連接mysql
-con.connect(function(err){
-    if(err)
-    {
-        console.log('connect error');
-        return;
-    }
-    console.log('connect success');
-})
-
 module.exports=con;

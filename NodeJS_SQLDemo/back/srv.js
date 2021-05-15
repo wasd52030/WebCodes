@@ -18,6 +18,16 @@ app.use(express.json());
 //res.query.xxxx -> 從get中的?xxxx=中
 //res.body.xxxx  -> 從Post中的變數
 
+//實際連接mysql
+sql.connect(function(err){
+    if(err)
+    {
+        console.log('SQL Server connect error');
+        return;
+    }
+    console.log('SQL Server connect success');
+})
+
 app.get('/', function (req, res) {
     res.sendFile(maindirectory + '/index.htm');
 });
