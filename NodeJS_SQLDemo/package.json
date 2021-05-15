@@ -4,7 +4,7 @@
   "description": "",
   "main": "back/srv.js",
   "scripts": {
-    "start": "nodemon back/srv.js"
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",
