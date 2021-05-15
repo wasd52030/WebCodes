@@ -2,7 +2,7 @@ function sel_page()
 {
     $.ajax({
         type: "GET",
-        url: "./Select.php",
+        url: "/SQLDemo/Back/Select.php",
         success: function (response){
             let ResultData=JSON.parse(response);
             switch (ResultData['status']) {

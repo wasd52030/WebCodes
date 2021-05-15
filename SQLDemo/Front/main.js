@@ -34,7 +34,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "./Insert.php",
+                url: "/SQLDemo/Back/Insert.php",
                 data: data,
                 success: function (response) {
                     let res = JSON.parse(response);

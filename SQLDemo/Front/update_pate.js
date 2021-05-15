@@ -4,7 +4,7 @@ function updatepage()
 {
     $.ajax({
         type: "GET",
-        url: "./Select.php",
+        url: "/SQLDemo/Back/Select.php",
         success: function (response){
             let ResultData=JSON.parse(response);
             switch (ResultData['status']) {
@@ -34,7 +34,7 @@ function updatepage()
                     $("#seldata").click(function (e){
                         $.ajax({
                             type: "POST",
-                            url: "./Search.php",
+                            url: "/SQLDemo/Back/Search.php",
                             data: {id:$("input[id='id']:checked").val()},
                             success: function (response){
                                 let JsonData=JSON.parse(response);
@@ -72,7 +72,7 @@ function editpage()
 
         $.ajax({
             type: "POST",
-            url: "./Update.php",
+            url: "/SQLDemo/Back/Update.php",
             data: data,
             success: function (response){
                 let res=JSON.parse(response);

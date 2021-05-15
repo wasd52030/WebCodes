@@ -2,9 +2,14 @@
 //如沒有nodemon package，請以 npm install nodemon -g 安裝
 let express=require('express');
 let app=express();
+let path = require('path')
 let sql=require('./SQL-config');
 
-app.use('/',express.static(__dirname))
+//取得專案根目錄，以本專案來說，根目錄在主伺服器程式的上一層
+let maindirectory=path.join(__dirname,'../');
+//設定伺服器根目錄
+app.use('/',express.static(maindirectory));
+
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
@@ -13,7 +18,7 @@ app.use(express.json());
 //res.body.xxxx  -> 從Post中的變數
 
 app.get('/',function (req,res){
-    res.sendFile(__dirname+'/index.htm');
+    res.sendFile(maindirectory+'/index.htm');
 });
 
 app.get('/sel',function(req,res){

@@ -2,11 +2,11 @@ function select_page()
 {
     $.ajax({
         type: "GET",
-        url: "./Select.php",
+        url: "/SQLDemo/Back/Select.php",
         success: function (response){
             let ResultData=JSON.parse(response);
             switch (ResultData['status']) {
-                case value:
+                case 200:
                     let data=ResultData['result']
                     let delpg=`<table border='1'>`;
                     delpg+="<tr><td></td><td>name</td><td>address</td><td>birthday</td></tr>"
@@ -42,7 +42,7 @@ function tosql(){
     $("#opt").click(function (e) {
         $.ajax({
             type: "POST",
-            url: "./Delete.php",
+            url: "/SQLDemo/Back/Delete.php",
             data: {id:$("input[id='id']:checked").val()},
             success: function (response){
                 let res=JSON.parse(response);
