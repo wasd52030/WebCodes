@@ -19,9 +19,8 @@ app.use(express.json());
 //res.body.xxxx  -> 從Post中的變數
 
 //實際連接mysql
-sql.connect(function(err){
-    if(err)
-    {
+sql.connect(function (err) {
+    if (err) {
         console.log('SQL Server connect error');
         return;
     }
