@@ -2,7 +2,7 @@ let axios = require('axios');
 let qs = require('qs');
 
 //axios預設的傳送數據格式跟PHP的不一樣
-//要先透過qs.stringify(data)轉換
+//如果要拉PHP作後端的api要先透過qs.stringify(data)轉換
 let data = {
     id: 1352135
 }
