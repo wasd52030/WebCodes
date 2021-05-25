@@ -16,7 +16,7 @@ function page_gren(btn_text,id=0,name="",address="",birthday="")
     pagestr+=`<tr><td>address: </td><td><input id="address" value=${address}></td></tr>`;
     pagestr+=`<tr><td>birthday: &nbsp;</td><td><input type="date" id="birthday" value=${birthday}></td></tr>`;
     pagestr+=`</table>`
-    pagestr+=`<button id="${btn_text=='update data' ? "update": "addpg"}" style="margin: 5px 0 0 0;">${btn_text}</button>`
+    pagestr+=`<button id="${btn_text=='update data' ? "Update": "addpg"}" style="margin: 5px 0 0 0;">${btn_text}</button>`
 }
 
 export {page_gren,pagestr};
