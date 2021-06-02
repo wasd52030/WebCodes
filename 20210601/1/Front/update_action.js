@@ -3,10 +3,9 @@ import { page_gren, pagestr } from './edit_page.js'
 let id = 0;
 function updateAction() {
     $("#Usel").click(function (e) {
-        axios.post('/SQLDemo/Back/Select.php', Qs.stringify({ id: $("input[id='id']:checked").val() }))
+        axios.post('/20210601/1/Back/Select.php', Qs.stringify({ id: $("input[id='id']:checked").val() }))
             .then(res => {
                 let data = res['data']['result']
-                console.log(data)
                 let d = new Date(data[0]['birth']);
                 let fullmonth = (d.getMonth() + 1) < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
                 let fulldate = (d.getDate() + 1) < 10 ? `0${d.getDate() + 1}` : d.getDate();
@@ -33,7 +32,7 @@ function editpage() {
         }
         console.log(data)
 
-        axios.post('/SQLDemo/Back/Update.php', Qs.stringify(data))
+        axios.post('/20210601/1/Back/Update.php', Qs.stringify(data))
             .then(res => {
                 let d = res['data'];
                 console.log(res)

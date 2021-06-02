@@ -1,21 +1,23 @@
 <template>
-  <button v-on:click="addclick">新增</button>
-  <button v-on:click="updateclick">修改</button>
-  <button v-on:click="deleteclick">刪除</button>
-  <button v-on:click="selectclick">查詢</button>
+  <ul class="pagination">
+    <li><button @click="p1 = 'add'">新增</button></li>
+    <li><button @click="p1 = 'update'">修改</button></li>
+    <li><button @click="p1 = 'delete'">刪除</button></li>
+    <li><button @click="p1 = 'viewall'">查詢</button></li>
+  </ul>
   <div class="result">
-    <ViewALL v-if="viewall"></ViewALL>
-    <Edit v-if="addedit" actions="新增"></Edit>
+    <Edit v-if="p1 == 'add'" actions="新增"></Edit>
     <Search
-      v-if="updatesearch"
+      v-if="p1 == 'update'"
       actions="修改"
       :actionflag="updatesearch"
     ></Search>
     <Search
-      v-if="deletesearch"
+      v-if="p1 == 'delete'"
       actions="刪除"
       :actionflag="deletesearch"
     ></Search>
+    <ViewALL v-if="p1 == 'viewall'"></ViewALL>
   </div>
 </template>
 
@@ -33,38 +35,41 @@ export default {
   },
   data() {
     return {
-      viewall: false,
-      addedit: false,
-      updatesearch: false,
-      deletesearch: false,
+      p1: "",
+      cnt: 0,
     };
-  },
-  methods: {
-    selectclick: function () {
-      this.viewall = true;
-      this.addedit = this.updatesearch = this.deletesearch = false;
-    },
-    addclick: function () {
-      this.addedit = true;
-      this.viewall = this.updatesearch = this.deletesearch = false;
-    },
-    updateclick: function () {
-      this.updatesearch = true;
-      this.addedit = this.viewall = this.deletesearch = false;
-    },
-    deleteclick: function () {
-      this.deletesearch = true;
-      this.addedit = this.updatesearch = this.viewall = false;
-    },
   },
 };
 </script>
 
 <style>
-button {
-  margin: 0 5px 0 0;
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
 }
-.result {
-  margin: 10px 0 0 0;
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+ul.pagination li button.active {
+  background-color: #eee;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+ul.pagination li button:hover:not(.active) {
+  background-color: #ddd;
 }
 </style>

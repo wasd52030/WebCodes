@@ -20,17 +20,22 @@
     </table>
     <button class="action" @click="doaction">{{ actions }}</button>
   </div>
-  <Message v-if="MessageShow" :status="status" :message="message"></Message>
+  <div>
+    <Search v-if="SearchAction" actions="修改" :actionflag="SearchAction"></Search>
+    <Message v-if="MessageShow" :status="status" :message="message"></Message>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
 import qs from "qs";
 import Message from "./Message.vue";
+import Search from "./Search.vue"
 export default {
   name: "Edit",
   components: {
     Message,
+    Search
   },
   props: {
     actions: String,
@@ -38,6 +43,7 @@ export default {
     name: String,
     address: String,
     birthday: String,
+    isupdate: Boolean,
   },
   data() {
     return {
@@ -46,6 +52,8 @@ export default {
       status: "",
       message: "",
       ideditflag: false,
+      cancelflag: false,
+      SearchAction: true,
     };
   },
   created() {
@@ -74,7 +82,7 @@ export default {
           .catch((err) => {
             console.error(err);
           });
-      } else if ((this.actions == "修改")) {
+      } else if (this.actions == "修改") {
         axios
           .post("/Back/Update.php", qs.stringify(data))
           .then((res) => {
@@ -94,5 +102,15 @@ export default {
 <style>
 .action {
   margin: 10px 0 0 0;
+}
+
+button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  font-size: 18px;
 }
 </style>

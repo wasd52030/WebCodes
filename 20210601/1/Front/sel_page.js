@@ -1,10 +1,7 @@
-import { updateAction } from "./update_pate.js";
-import { delAction } from "./del_page.js";
-
-let searchpagestr = ''
-function serachpage(id, btntext) {
-
-    axios.get("/SQLDemo/Back/Select.php")
+function sel_page()
+{
+    let searchpagestr = ''
+    axios.get("/20210601/1/Back/Select.php")
         .then(res => {
             console.log(res)
             switch (res['status']) {
@@ -16,7 +13,7 @@ function serachpage(id, btntext) {
                         searchpagestr += "<tr>";
                         //radio button 的name參數用來告訴瀏覽器同名的選項為一組，使得radio button一組資料只能取一的特性啟動
                         //radio button 的value參數通常會傳回後端處理
-                        searchpagestr += `<td><input id="id" name="id" type="radio" value="` + element['id'] + `"></td>`;
+                        searchpagestr += "<td>" + element['id'] + "</td>";
                         searchpagestr += "<td>" + element['name'] + "</td>";
                         searchpagestr += "<td>" + element['addr'] + "</td>";
                         //把伺服器傳回來的時間字串轉成javascript的日期物件，方便取所需的值
@@ -28,18 +25,10 @@ function serachpage(id, btntext) {
                         searchpagestr += "</tr>";
                     });
                     searchpagestr += "</table>";
-                    if (id === 'Usel') {
-                        searchpagestr += `<button id="${id}" style="margin: 5px 0 0 0;">${btntext}</button>`;
-                        $("#result").html(searchpagestr);
-                        updateAction();
-                    } else if (id === 'Del') {
-                        searchpagestr += `<button id="${id}" style="margin: 5px 0 0 0;">${btntext}</button>`;
-                        $("#result").html(searchpagestr);
-                        delAction();
-                    }
+                    $("#result").html(searchpagestr);
                     break;
                 default:
-                    $("#result").html(ResultData['message']);
+                    $("#result").html(res['message']);
                     break;
             }
         })
@@ -48,4 +37,4 @@ function serachpage(id, btntext) {
         })
 }
 
-export { serachpage }
+export {sel_page};

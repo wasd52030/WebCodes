@@ -7,12 +7,11 @@
         try
         {   
             $conn=$res['result'];
-
             if (isset($_POST['id'])) {
                 $id=$_POST['id'];
-                $sql="SELECT * FROM x WHERE ID= ?";
+                $sql="SELECT * FROM `x` WHERE `id`=?";
                 $stmt=$conn->prepare($sql);
-                $result=$stmt->execute();
+                $result=$stmt->execute(array($id));
             } else {
                 $sql = "SELECT  *  FROM  `x`";
                 $stmt=$conn->prepare($sql);

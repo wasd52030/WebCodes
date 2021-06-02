@@ -2,7 +2,7 @@
   <div v-if="actionflag">
     <table border="1">
       <tr>
-        <td>id</td>
+        <td></td>
         <td>name</td>
         <td>address</td>
         <td>birthday</td>
@@ -25,6 +25,7 @@
       :name="name"
       :address="addr"
       :birthday="birth"
+      :isupdate="doupdate"
     ></Edit>
     <Message v-if="dodelete" :status="status" :message="message"></Message>
   </div>
@@ -44,6 +45,7 @@ export default {
   },
   props: {
     actions: String,
+    actionflag:String
   },
   data() {
     return {
@@ -68,13 +70,11 @@ export default {
       .catch((err) => {
         this.d = err;
       });
-    console.log(this.actions);
   },
   methods: {
     doaction: function () {
       this.actionflag = false;
       
-
       let data = {
         id: this.id,
       };
@@ -120,5 +120,8 @@ export default {
 }
 .result {
   margin: 10px 0 0 0;
+}
+button:hover:not(.active) {
+  background-color: #ddd;
 }
 </style>

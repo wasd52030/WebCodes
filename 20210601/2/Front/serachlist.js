@@ -1,12 +1,11 @@
-import { updateAction } from "./update_pate.js";
-import { delAction } from "./del_page.js";
+import { updateAction } from "./update_action.js";
+import { delAction } from "./del_action.js";
 
 let searchpagestr = ''
 function serachpage(id, btntext) {
 
-    axios.get("/SQLDemo/Back/Select.php")
+    axios.get("http://localhost/20210601/2/Back/index.php?action=Select")
         .then(res => {
-            console.log(res)
             switch (res['status']) {
                 case 200:
                     let data = res['data']['result']
@@ -39,7 +38,7 @@ function serachpage(id, btntext) {
                     }
                     break;
                 default:
-                    $("#result").html(ResultData['message']);
+                    $("#result").html(res['message']);
                     break;
             }
         })
