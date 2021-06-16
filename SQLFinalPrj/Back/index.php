@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
@@ -27,4 +28,5 @@ switch ($action) {
         $res['message'] = 'not found';
         break;
 }
+
 echo json_encode($res);

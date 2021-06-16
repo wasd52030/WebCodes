@@ -1,6 +1,7 @@
-import { page_gren, pagestr } from "./edit_page.js";
+import { page_gren, pagestr } from "./EditPage.js";
+
 function addAction() {
-    page_gren('add data');
+    page_gren("新增股票");
     $("#result").html(pagestr);
 
     $("#addpg").click(function (e) {
@@ -10,7 +11,6 @@ function addAction() {
             price: $("#price").val(),
             mk_price: $("#mk_price").val()
         }
-        console.log(data)
 
         $.ajax({
             type: "POST",

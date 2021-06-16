@@ -7,7 +7,7 @@ function Select()
         try {
             $conn = $res['result'];
             if (isset($_POST["id"])) {
-                $id=$_POST["id"];
+                $id = $_POST["id"];
                 $sql = "SELECT * FROM `gp` WHERE `id`=?";
                 $stmt = $conn->prepare($sql);
                 $result = $stmt->execute(array($id));

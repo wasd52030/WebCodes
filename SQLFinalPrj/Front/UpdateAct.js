@@ -1,4 +1,4 @@
-import { page_gren, pagestr } from './edit_page.js'
+import { page_gren, pagestr } from './EditPage.js'
 
 let id = 0;
 function updateAction() {

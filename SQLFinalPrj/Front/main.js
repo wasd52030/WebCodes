@@ -1,7 +1,7 @@
-import { mainpage } from "./main_page.js";
-import { addAction } from "./add_action.js";
-import { sel_page } from "./sel_page.js";
-import {serachpage} from "./serachlist.js";
+import { mainpage } from "./MainPage.js";
+import { addAction } from "./Addact.js";
+import { sel_page } from "./SelOdrPage.js";
+import { serachpage } from "./SearchLisr.js";
 
 
 $(document).ready(function () {
@@ -9,7 +9,7 @@ $(document).ready(function () {
     $("#main").html(mainpage);
 
     $("#sel").click(function (e) {
-        $("#result").html(sel_page);
+        sel_page();
     });
 
     $("#add").click(function (e) {
@@ -17,10 +17,10 @@ $(document).ready(function () {
     });
 
     $("#del").click(function (e) {
-        serachpage("Del", "delete data");
+        serachpage("Del", "刪除股票");
     });
 
     $("#update").click(function (e) {
-        serachpage('Usel', 'edit data');
+        serachpage("Usel", "修改股票資訊");
     });
 });
