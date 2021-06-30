@@ -1,8 +1,8 @@
 import { mainpage } from "./MainPage.js";
 import { addAction } from "./Addact.js";
 import { sel_page } from "./SelOdrPage.js";
-import { serachpage } from "./SearchLisr.js";
-
+import { serachpage } from "./SearchList.js";
+import { buysManage } from "./BuysManage.js"
 
 $(document).ready(function () {
 
@@ -22,5 +22,9 @@ $(document).ready(function () {
 
     $("#update").click(function (e) {
         serachpage("Usel", "修改股票資訊");
+    });
+
+    $("#buy").click(function (e) {
+        buysManage();
     });
 });

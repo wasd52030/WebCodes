@@ -11,6 +11,10 @@ function Select()
                 $sql = "SELECT * FROM `gp` WHERE `id`=?";
                 $stmt = $conn->prepare($sql);
                 $result = $stmt->execute(array($id));
+            } elseif (isset($_POST['buys'])) {
+                $sql = "SELECT * FROM `gp` WHERE `ordercnt`>0";
+                $stmt = $conn->prepare($sql);
+                $result = $stmt->execute();
             } else {
                 $sql = "SELECT  *  FROM  `gp`";
                 $stmt = $conn->prepare($sql);

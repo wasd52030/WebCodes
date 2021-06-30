@@ -1,4 +1,5 @@
-import { page_gren, pagestr } from './EditPage.js'
+import { page_gren } from './EditPage.js'
+import { serachpage } from "./SearchList.js";
 
 let id = 0;
 function updateAction() {
@@ -9,7 +10,6 @@ function updateAction() {
                 id = data[0]['id'];
                 console.log(data)
                 page_gren('update data', id, data['0'].name, data['0'].price, data['0'].mk_price);
-                $("#result").html(pagestr);
                 editpage();
             })
             .catch(err => {
@@ -31,9 +31,8 @@ function editpage() {
 
         axios.post('http://localhost/SQLFinalPrj/Back/index.php?action=Update', Qs.stringify(data))
             .then(res => {
-                let d = res['data'];
-                let updateresult = `status:${d['status']} message:${d['message']}`;
-                $("#result").html(updateresult);
+                alert("修改成功，將返回選擇畫面！");
+                serachpage("Usel", "修改股票資訊");
             })
             .catch(err => {
                 console.error(err);
