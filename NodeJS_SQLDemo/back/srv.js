@@ -14,9 +14,9 @@ app.use('/', express.static(maindirectory));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//res.prams.xxxx -> 從path中的變數
-//res.query.xxxx -> 從get中的?xxxx=中
-//res.body.xxxx  -> 從Post中的變數
+//req.prams.xxxx -> 從path中的變數
+//req.query.xxxx -> 從get中的?xxxx=中
+//req.body.xxxx  -> 從Post中的變數
 
 //實際連接mysql
 sql.connect(function (err) {
