@@ -29,7 +29,7 @@ function Select()
             }
         } catch (PDOException $e) {
             $response['status'] = $e->getCode();
-            $response['message'] = $e->getMessage;
+            $response['message'] = $e->getMessage();
         }
         return $response;
     }

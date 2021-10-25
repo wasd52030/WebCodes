@@ -30,7 +30,7 @@ try {
         $response['message'] = "SQL錯誤";
     }
 } catch (PDOException $e) {
-    $response['status'] = $e->getCode;
+    $response['status'] = $e->getCode();
     $response['message'] = $e->getMessage();
 }
 echo json_encode($response);
