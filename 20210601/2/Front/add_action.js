@@ -18,19 +18,17 @@ function addAction() {
             birthday: $("#birthday").val()
         }
 
-        $.ajax({
-            type: "POST",
-            url: "http://localhost/20210601/2/Back/index.php?action=Insert",
-            data: data,
-            success: function (response) {
-                let res = JSON.parse(response);
-                let delresult = `status:${res['status']} message:${res['message']}`;
-                $("#result").html(delresult);
-            },
-            error: function (err) {
-                console.log(err)
-            }
-        });
+        axios.post('http://localhost/20210601/2/Back/index.php?action=Insert', Qs.stringify(data))
+            .then(res => {
+                let d = res['data'];
+                let resultmsg = `status:${d['status']} message:${d['message']}`;
+                $("#result").html(resultmsg);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+
+
     });
 }
 
