@@ -3,7 +3,12 @@
 GET http://localhost/20211129/1/Back/public/index.php?action=getUsers HTTP/1.1
 
 ###
+POST http://localhost/20211129/1/Back/public/index.php?action=getUsers HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
 
+id=E123
+
+###
 POST http://localhost/20211129/1/Back/public/index.php?action=newUser HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
@@ -26,7 +31,7 @@ POST http://localhost/20211129/1/Back/public/index.php?action=updateUser HTTP/1.
 Content-Type: application/x-www-form-urlencoded
 
 id=Q1754
-&name=qwertyu
+&name=qwexrtyu!
 &pwd=ty!hjk@m,bjkiop
 &EntryDate=1234-12-04
 &address=tRyz
