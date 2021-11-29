@@ -7,7 +7,7 @@ let sql = require('./SQL-config');
 
 //取得專案根目錄，以本專案來說，根目錄在主伺服器程式的上一層
 //__dirname => 取得檔案所在之路徑
-let maindirectory = path.join(__dirname, '../');
+let maindirectory = path.join(__dirname, '../front');
 //設定伺服器根目錄
 app.use('/', express.static(maindirectory));
 

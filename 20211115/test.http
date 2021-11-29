@@ -1,0 +1,10 @@
+//PHP的$_POST支援的content-type的型別只有application/x-www-form-urlencoded 或 multipart/form-data 。
+
+POST http://localhost/20211115/1/back/debug.php HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+Id=9
+&Name=gfd
+&ContactPerson=qweqwe
+&Phone=5
+&Address=weqwe
