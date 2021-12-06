@@ -1,5 +1,4 @@
 <?php
-require_once sprintf("%s/../../vendor/sqlConfig.php", __DIR__);
 require_once sprintf("%s/../../vendor/DataBase.php", __DIR__);
 require_once sprintf("%s/../../vendor/Controller.php", __DIR__);
 
