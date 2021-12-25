@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        帳號：<input type="text" id="id"><br>
+        密碼：<input type="password" id="password"><br>
+        <button id="login">登入</button>
+        <button id="checkToken">檢查</button>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function (e) {
+                const data = {
+                    "id": $("#id").val(),
+                    "password": $("#password").val()
+                }
+
+                axios.post("http://localhost/20211220/2/Back/index.php", Qs.stringify(data))
+                    .then(resp => {
+                        let res = resp["data"];
+                        if (window.localStorage) {
+                            window.localStorage.setItem("jwtToken", res)
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            });
+
+            $("#checkToken").click(function (e) {
+                if (window.Storage) {
+                    const jwtToken = window.localStorage.getItem("jwtToken")
+
+                    axios.get("http://localhost/20211220/2/Back/check.php", { "headers": { "Authorization": jwtToken } })
+                    .then(res => {
+                        let response=res["data"]
+                        console.log(response)
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })
+                }
+                
+            });
+        });
+    </script>
+</body>
+
+</html>
