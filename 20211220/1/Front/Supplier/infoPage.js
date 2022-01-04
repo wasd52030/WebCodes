@@ -1,10 +1,11 @@
 import { addAction } from "./add_action.js";
 import { editpage } from "./update_action.js";
-import {delAction} from "./del_action.js"
+import {delAction} from "./del_action.js";
+import Request from '../CustomLibs/Request.js';
 
 export function SupplierInfo() {
     let InfoPageStr = ''
-    axios.get("http://localhost/20211220/1/Back/public/index.php?action=getSuppliers")
+    Request().get("http://localhost/20211220/1/Back/public/index.php?action=getSuppliers")
         .then(res => {
             switch (res['status']) {
                 case 200:

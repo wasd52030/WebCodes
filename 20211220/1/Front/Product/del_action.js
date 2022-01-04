@@ -1,7 +1,8 @@
 import { ProdInfo } from "./infoPage.js";
+import Request from '../CustomLibs/Request.js';
 
 export function delAction(id) {
-    axios.post('http://localhost/20211220/1/Back/public/index.php?action=removeProduct', Qs.stringify({ id: id }))
+    Request().post('index.php?action=removeProduct', Qs.stringify({ id: id }))
         .then(res => {
             let d = res['data'];
             let resultmsg = `status:${d['status']} message:${d['message']}`;

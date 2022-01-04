@@ -1,9 +1,10 @@
-import { page_gren, pagestr } from './edit_page.js'
-import { EmployeeInfo } from "./infoPage.js"
-import { NumberLimitById } from "../CustomLibs/NumberLimit.js"
+import { page_gren, pagestr } from './edit_page.js';
+import { EmployeeInfo } from "./infoPage.js";
+import { NumberLimitById } from "../CustomLibs/NumberLimit.js";
+import Request from '../CustomLibs/Request.js';
 
 export function editpage(id) {
-    axios.post('http://localhost/20211220/1/Back/public/index.php?action=getUsers', Qs.stringify({ id: id }))
+    Request().post('index.php?action=getUsers', Qs.stringify({ id: id }))
         .then(res => {
             let data = res['data']['result'];
             page_gren('update data', data[0]['id'], data[0]['name'], data['0']["pwd"], data['0']["EntryDate"], data['0']["address"], data['0']["email"], data['0']["phone"]);
@@ -29,7 +30,7 @@ function UpdateAction() {
             phone: $("#phone").val()
         }
 
-        axios.post('http://localhost/20211220/1/Back/public/index.php?action=updateUser', Qs.stringify(data))
+        Request().post('index.php?action=updateUser', Qs.stringify(data))
             .then(res => {
                 let d = res['data'];
                 let updateresult = `status:${d['status']} message:${d['message']}`;

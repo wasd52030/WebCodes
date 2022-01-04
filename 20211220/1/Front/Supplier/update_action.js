@@ -1,8 +1,9 @@
 import { page_gren, pagestr } from './edit_page.js'
 import { SupplierInfo } from "./infoPage.js";
+import Request from '../CustomLibs/Request.js';
 
 export function editpage(id) {
-    axios.post('http://localhost/20211220/1/Back/public/index.php?action=getSuppliers', Qs.stringify({ id: id }))
+    Request().post('index.php?action=getSuppliers', Qs.stringify({ id: id }))
         .then(res => {
             console.log(res)
             let data = res['data']['result'];
@@ -26,7 +27,7 @@ function UpdateAction() {
             Address: $("#Address").val(),
         }
 
-        axios.post('http://localhost/20211220/1/Back/public/index.php?action=updateSupplier', Qs.stringify(data))
+        Request().post('index.php?action=updateSupplier', Qs.stringify(data))
             .then(res => {
                 let d = res['data'];
                 let updateresult = `status:${d['status']} message:${d['message']}`;

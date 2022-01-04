@@ -1,5 +1,6 @@
 import { page_gren, pagestr } from "./edit_page.js";
 import { CharacterInfo } from "./infoPage.js";
+import Request from '../CustomLibs/Request.js';
 
 
 function addAction() {
@@ -12,7 +13,8 @@ function addAction() {
             name: $("#name").val(),
         }
 
-        axios.post('http://localhost/20211220/1/Back/public/index.php?action=newCharacter', Qs.stringify(data))
+        
+        Request().post('index.php?action=newCharacter', Qs.stringify(data))
             .then(res => {
                 let d = res['data'];
                 let resultmsg = `status:${d['status']} message:${d['message']}`;

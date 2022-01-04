@@ -1,10 +1,11 @@
 import { addAction } from "./add_action.js";
 import { editpage } from "./update_action.js";
-import { delAction } from "./del_action.js"
+import { delAction } from "./del_action.js";
+import Request from '../CustomLibs/Request.js';
 
 export function CharacterInfo() {
     let InfoPageStr = ''
-    axios.get("http://localhost/20211220/1/Back/public/index.php?action=getCharacters")
+    Request().get("index.php?action=getCharacters")
         .then(res => {
             switch (res['status']) {
                 case 200:

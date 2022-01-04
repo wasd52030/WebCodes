@@ -1,32 +1,23 @@
-import { Mainpage } from "./main_page.js";
-import { EmployeeInfo } from "./Employee/infoPage.js"
-import { ProdInfo } from "./Product/infoPage.js"
-import { CharacterInfo } from "./Character/infoPage.js"
-import { SupplierInfo } from "./Supplier/infoPage.js"
-import { OrderInfo } from "./Order/infoPage.js"
+import Request from "./CustomLibs/Request.js"
+import { loginPage } from './login_page.js'
+import { Mainpage } from "./main_page.js"
 
 
 $(document).ready(function () {
-
-    $("#main").html(Mainpage());
-
-    $("#employee").click(function (e) {
-        EmployeeInfo();
-    });
-
-    $("#product").click(function (e) {
-        ProdInfo();
-    });
-
-    $("#Character").click(function (e) {
-        CharacterInfo();
-    });
-
-    $("#Supplier").click(function (e) {
-        SupplierInfo();
-    });
-
-    $("#Order").click(function (e) {
-        OrderInfo();
-    });
+    if (window.localStorage) {
+        Request().get("/index.php")
+            .then(res => {
+                const response = res["data"]
+                if (response["status"] == 200) {
+                    window.localStorage.setItem("jwtToken", response["token"])
+                    Mainpage()
+                } else {
+                    loginPage()
+                    console.log(response)
+                }
+            })
+            .catch(err => {
+                console.log("err")
+            })
+    }
 });

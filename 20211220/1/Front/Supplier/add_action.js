@@ -1,6 +1,7 @@
 import { page_gren, pagestr } from "./edit_page.js";
 import { SupplierInfo } from "./infoPage.js";
 import { NumberLimitById } from "../CustomLibs/NumberLimit.js";
+import Request from '../CustomLibs/Request.js';
 
 function addAction() {
     page_gren('新增');
@@ -17,7 +18,7 @@ function addAction() {
             Address: $("#Address").val(),
         }
 
-        axios.post('http://localhost/20211220/1/Back/public/index.php?action=newSupplier', Qs.stringify(data))
+        Request().post('index.php?action=newSupplier', Qs.stringify(data))
             .then(res => {
                 let d = res['data'];
                 let resultmsg = `status:${d['status']} message:${d['message']}`;

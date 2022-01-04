@@ -1,10 +1,11 @@
 import { addAction } from "./add_action.js";
 import { editpage } from "./update_action.js";
-import {delAction} from "./del_action.js"
+import {delAction} from "./del_action.js";
+import Request from '../CustomLibs/Request.js';
 
 export function EmployeeInfo() {
     let InfoPageStr = ''
-    axios.get("http://localhost/20211220/1/Back/public/index.php?action=getUsers")
+    Request().get("index.php?action=getUsers")
         .then(res => {
             switch (res['status']) {
                 case 200:
@@ -20,7 +21,7 @@ export function EmployeeInfo() {
                         InfoPageStr += "<td>" + element['address'] + "</td>";
                         InfoPageStr += "<td>" + element['email'] + "</td>";
                         InfoPageStr += "<td>" + element['phone'] + "</td>";
-                        InfoPageStr += `<td><button id=${element['id']} class='updateUser'>修改</button><button id=${element['id']} class='deleteUser'>刪除</button></td>`;
+                        InfoPageStr += `<td><button id=${element['id']} class='updateUser btn btn-info text-white'>修改</button><button id=${element['id']} class='deleteUser btn btn-danger text-white'>刪除</button></td>`;
                     });
                     InfoPageStr += "</table>";
                     $("#result").html(InfoPageStr);

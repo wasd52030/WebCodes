@@ -3,6 +3,7 @@ require_once sprintf("%s/../vendor/Autoload.php", __DIR__);
 
 use vendor\Router;
 use vendor\DataBase;
+use app\Middleware\AuthMiddleware;
 
 
 class Main
@@ -21,10 +22,24 @@ class Main
             $action = "_no_action";
         }
 
-        $router = new Router();
-        require_once sprintf("%s/../Route/webRouters.php", __DIR__);
-
-        $response = $router->run($action);
+        $response = $responseToken = AuthMiddleware::checkToken();
+        if ($responseToken['status'] == 200) {
+            if ($action != "_no_action") {
+                $router = new Router();
+                require_once sprintf("%s/../Route/webRouters.php", __DIR__);
+                $response = $router->run($action);
+                $response['token'] = $responseToken['token'];
+            }
+        } else {
+            switch ($action) {
+                case 'Login':
+                    $response = AuthMiddleware::Login();
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         echo json_encode($response);
     }
 }
