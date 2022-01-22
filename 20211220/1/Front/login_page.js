@@ -8,7 +8,7 @@ export function loginPage() {
         <div id="content"></div>
     `;
     $("#main").html(sp);
-    
+
     $("#login").click(function (e) {
         const data = {
             "id": $("#id").val(),
@@ -18,11 +18,16 @@ export function loginPage() {
             .then(function (resp) {
                 console.log(resp);
                 let response = resp['data'];
-                
-                if (window.localStorage) { //儲存到 local storage
-                    window.localStorage.setItem("jwtToken", response['token']);
+
+                if (response['token'] != "") {
+                    if (window.localStorage) { //儲存到 local storage
+                        window.localStorage.setItem("jwtToken", response['token']);
+                    }
+                } else {
+                    alert("帳號或密碼錯誤！")
                 }
-                window.location.reload(); //重新載入網頁
+
+                window.location.reload();
             })
             .catch(function (err) {
                 console.log(err);

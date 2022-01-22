@@ -2,6 +2,7 @@
 
 namespace app\Middleware;
 
+use app\Models\Account;
 use \Exception;
 use vendor\JWT\JWT;
 
@@ -12,6 +13,7 @@ class AuthMiddleware
     {
         $headers = getallheaders();
         $jwt = $headers['Authorization'];
+
         $secret_key = "cccc"; //YOUR_SECRET_KEY
         try {
             $payload = JWT::decode($jwt, $secret_key, array('HS256'));
@@ -30,11 +32,26 @@ class AuthMiddleware
     {
         $id = $_POST['id'];
         $password = $_POST['password'];
+
         //查詢DB驗證帳密的正確性
-        $jwt = self::genToken($id);
-        $response['status'] = 200;
-        $response['message'] = "Access granted";
-        $response['token'] = $jwt;
+        $account = new Account();
+        $auth = $account->Authorization($id, $password);
+
+        if (count($auth['result']) != 0) {
+            $jwt = self::genToken($id);
+            $response['status'] = 200;
+            $response['message'] = "Access granted";
+            $response['token'] = $jwt;
+        } else {
+            $response['status'] = 204;
+            $response['message'] = "Access failed";
+            $response['token'] = '';
+        }
+
+        // $jwt = self::genToken($id);
+        // $response['status'] = 200;
+        // $response['message'] = "Access granted";
+        // $response['token'] = $jwt;
 
         return $response;
     }
@@ -45,7 +62,7 @@ class AuthMiddleware
         $issuer_claim = "http://localhost";
         $audience_claim = "http://localhost";
         $issuedat_claim = time(); // issued at
-        $expire_claim = $issuedat_claim + 60;
+        $expire_claim = $issuedat_claim + 86400;
         $payload = array(
             "iss" => $issuer_claim,
             "aud" => $audience_claim,

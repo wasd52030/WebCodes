@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="./main.js"></script>
+    <title>AJAX UPLOAD DEMO</title>
+</head>
+
+<body>
+    <div>
+        上傳檔案：<span><input type="file" id="file" name="file"></span>
+        <input type="button" id="upload" value="提交">
+    </div>
+
+    <div style="margin: 5px 0 0 0;">
+        <button id="getfilelist">顯示檔案清單</button>
+        <div id="filelist"></div>
+    </div>
+</body>
+
+</html>

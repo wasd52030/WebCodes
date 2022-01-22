@@ -1,4 +1,5 @@
 <?php
+
 namespace vendor;
 
 abstract class Controller
