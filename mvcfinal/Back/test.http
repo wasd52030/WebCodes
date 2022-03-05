@@ -1,8 +1,0 @@
-//PHP的$_POST支援的content-type的型別只有application/x-www-form-urlencoded 或 multipart/form-data 。
-POST http://localhost/mmisdb/Back/public/index.php?action=EmployeeReport HTTP/1.1
-User-Agent: rest-client 
-Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4 
-Content-Type: application/x-www-form-urlencoded
-Authorization:token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJIYWl5YWEgQ28gTHRkLiIsImF1ZCI6IlVzZXIgYWJjIiwiaWF0IjoxNjQxNjI5MTkwLCJleHAiOjE2NDE3MTU1OTAsImRhdGEiOnsiaWQiOiJhYmMifX0.-7daBQrMtkNxuXSKKo-ikmbuf_rFfUZ6gYzEs7vLTrQ
-
-TableName=employee
