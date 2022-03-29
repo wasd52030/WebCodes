@@ -1,5 +1,4 @@
 import React from 'react'
-import Counter from '../Counter/Counter'
 import Menu from '../Menu/Menu'
 import './App.css'
 

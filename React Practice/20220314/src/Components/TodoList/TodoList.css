@@ -1,0 +1,11 @@
+.container {
+    width: 450px;
+    margin: 200px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.TodoItem{
+    display: flex;
+    margin-top: 3px;
+}
