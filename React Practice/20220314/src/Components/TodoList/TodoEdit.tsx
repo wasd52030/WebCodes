@@ -1,4 +1,4 @@
-import { Todo } from "./TodoItem"
+import Todo from "./TodoDEF"
 
 interface Props {
     EditHandler: Function,
@@ -12,6 +12,7 @@ export default function TodoEdit(props: Props) {
             <input
                 type="text"
                 defaultValue={props.Todo.title}
+                autoFocus
 
                 onBlur={event => {
                     props.EditHandler(props.index, event.currentTarget.value)

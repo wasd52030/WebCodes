@@ -5,7 +5,28 @@
     border-radius: 10px;
 }
 
-.TodoItem{
+.TodoItem {
     display: flex;
-    margin-top: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 2em;
+    margin-left: 4px;
+    background: none;
+    border: 1px solid;
+    transition: 250ms ease-out;
+}
+
+.edit:hover {
+    color:#fff;
+    background: #1979AA;
+}
+
+.delete:hover{
+    color: #fff;
+    background: #f00;
 }

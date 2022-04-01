@@ -1,7 +1,8 @@
 import React from "react";
 import TodoAdd from "./TodoAdd";
 import TodoEdit from "./TodoEdit";
-import TodoItem, { Todo } from "./TodoItem";
+import TodoItem from "./TodoItem";
+import Todo from "./TodoDEF"
 import "./TodoList.css"
 
 export default class TodoList extends React.Component<{}, { list: Array<Todo> }> {

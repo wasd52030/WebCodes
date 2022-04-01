@@ -8,6 +8,8 @@ export default function TodoAdd(p: Props) {
             Title:
             <input
                 type="text"
+                autoFocus
+                placeholder="Press enter to add todolist"
                 style={{ marginLeft: "10px" }}
                 onKeyDown={
                     (event) => {

@@ -1,3 +1,5 @@
+import Todo from "./TodoDEF"
+
 interface props {
     Todo: Todo,
     index: number,
@@ -6,21 +8,16 @@ interface props {
     CatchEdit: Function
 }
 
-export interface Todo {
-    title: string,
-    done: boolean,
-    editing: boolean
-}
-
 export default function TodoItem(p: props) {
     return (
         <li className="TodoItem">
-            <input type="checkbox" checked={p.Todo.done} onChange={() => { p.OnDone(p.index) }} />
-            <div style={{ textDecoration: (p.Todo.done) ? "line-through" : "" }}>
+            <label style={{ textDecoration: (p.Todo.done) ? "line-through" : "" }}>
+                {/*文字刪除線(CSS)：text-decoration:line-through;*/}
+                <input type="checkbox" checked={p.Todo.done} onChange={() => { p.OnDone(p.index) }} />
                 {p.Todo.title}
-            </div>
-            <button onClick={() => p.CatchEdit(p.index)} style={{ marginLeft: "3px" }}>Edit</button>
-            <button onClick={() => p.OnDelete(p.index)}>Delete</button>
+            </label>
+            <button className="btn edit" onClick={() => p.CatchEdit(p.index)}>Edit</button>
+            <button className="btn delete" onClick={() => p.OnDelete(p.index)}>Delete</button>
         </li>
     )
 }
