@@ -18,8 +18,8 @@ https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
 
 # 技術選型
 使用React+Typescript，構建工具使用Vite。
-會用Typescript主要是為了盡量在有明確的型別下開發，以防各種渣操產生的Bug，而且Autocomplete能更加好用，真香
-Vite純粹抱著嘗試的心態去用，使用下來感覺比Webpack快很多呢，就是要記得當生成專案目錄時要進去安裝依賴項目
+會用Typescript主要是為了盡量在有明確的型別下開發，以防各種渣操產生的Bug，而且Autocomplete能更加好用，真香~
+Vite純粹抱著嘗試的心態去用，使用下來感覺比Webpack快很多呢，就是要記得當生成專案目錄時要進去安裝依賴項目。
 
 # 專案使用
 進入專案目錄
