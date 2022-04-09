@@ -5,12 +5,12 @@
 使用React+Typescript，構建工具使用Vite。
 
 # 專案使用
-git clone
-```git clone ```
 進入專案目錄
 ```cd react-meetups```
+
 安裝依賴項目
 ```npm install```
+
 啟動專案
 ```npm run dev```
 
