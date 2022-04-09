@@ -1,0 +1,75 @@
+{
+    "data":[
+        {
+            "id": "m1",
+            "title": "This is a 1st meetup",
+            "image":
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m2",
+            "title": "This is a 2nd meetup",
+            "image":
+                "https://a.cdn-hotels.com/gdcs/production77/d1066/6c48e8c7-e9d2-45af-8e9c-a1792bcb8ca9.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m3",
+            "title": "This is a 3rd meetup",
+            "image":
+                "https://a.cdn-hotels.com/gdcs/production76/d903/9e72209a-8395-4670-a31d-96e1f3e1a5ca.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m4",
+            "title": "This is a 4th meetup",
+            "image":
+                "https://www.vmcdn.ca/f/files/victoriatimescolonist/json/2022/03/web1_vka-viewstreet-13264.jpg;w=960",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },{
+            "id": "m5",
+            "title": "This is a 5th meetup",
+            "image":
+                "https://cdn.pixabay.com/photo/2016/07/02/22/59/street-1493919_960_720.jpg",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m6",
+            "title": "This is a 6th meetup",
+            "image":
+                "https://cdn.pixabay.com/photo/2022/02/03/05/08/daegu-6989752_960_720.jpg",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m7",
+            "title": "This is a 7th meetup",
+            "image":
+                "https://images.pexels.com/photos/1980720/pexels-photo-1980720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        },
+        {
+            "id": "m8",
+            "title": "This is a 8th meetup",
+            "image":
+                "https://images.pexels.com/photos/845242/pexels-photo-845242.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "address": "Meetupstreet 5, 12345 Meetup City",
+            "description":
+                "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+        }
+    ]
+}

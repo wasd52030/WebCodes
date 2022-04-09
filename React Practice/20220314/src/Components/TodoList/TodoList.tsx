@@ -3,7 +3,7 @@ import TodoAdd from "./TodoAdd";
 import TodoEdit from "./TodoEdit";
 import TodoItem from "./TodoItem";
 import Todo from "./TodoDEF"
-import "./TodoList.css"
+import "./style.css"
 
 export default class TodoList extends React.Component<{}, { list: Array<Todo> }> {
     constructor(props: any) {
