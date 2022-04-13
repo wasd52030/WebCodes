@@ -5,8 +5,8 @@ import FavoritesContext from "../store/FavoritesContext"
 export default function FavoritesPage() {
     const FavoriteCtx = useContext(FavoritesContext)
     let content = (FavoriteCtx.totalFavorites === 0)
-        ? <p>You got not favorites yet.Start Add Some?</p>
-        : <MeetupList meetups={FavoriteCtx.favorites} />
+                  ? <p>You got not favorites yet.Start Add Some?</p>
+                  : <MeetupList meetups={FavoriteCtx.favorites} />
 
     return (
         <div>
