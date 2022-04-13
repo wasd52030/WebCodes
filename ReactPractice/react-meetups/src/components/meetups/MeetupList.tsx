@@ -1,5 +1,5 @@
 import MeetupItem from "./MeetupItem"
-import classes from "./MeetupList.module.css"
+import classes from "./MeetupList.module.scss"
 import Meetup from "./MeetupDEF"
 
 interface Props {

@@ -2,7 +2,7 @@ import { useContext } from "react"
 import Meetup from "./MeetupDEF"
 import Card from "../Card/Card"
 import FavoritesContext from "../../store/FavoritesContext"
-import classes from "./MeetupItem.module.css"
+import classes from "./MeetupItem.module.scss"
 
 export default function MeetupItem(p: { meetup: Meetup }) {
     const favoritesCtx = useContext(FavoritesContext)

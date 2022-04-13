@@ -29,11 +29,15 @@ https://ithelp.ithome.com.tw/articles/10205106
 
 https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
 
+## SCSS
+
+https://ithelp.ithome.com.tw/articles/10190746
 
 # 技術選型
-使用React+Typescript，構建工具使用Vite。
+使用React+Typescript，構建工具使用Vite，Css預處理器使用scss。
 會用Typescript主要是為了盡量在有明確的型別下開發，以防各種渣操產生的Bug，而且Autocomplete能更加好用，真香~
 Vite純粹抱著嘗試的心態去用，使用下來感覺比Webpack快很多呢，就是要記得當生成專案目錄時要進去安裝依賴項目。
+scss主要是配合[這玩意](https://marketplace.visualstudio.com/items?itemName=fengzhu.css-module-intellisense)來達成在tsx裡面寫css class時可以依據引入的檔案自動補全，等有空再深入研究。
 
 # 專案使用
 進入專案目錄

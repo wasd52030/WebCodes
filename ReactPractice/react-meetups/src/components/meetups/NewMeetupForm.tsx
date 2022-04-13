@@ -1,6 +1,6 @@
 import { FormEvent, useRef } from "react"
 import Card from "../Card/Card"
-import classes from "./NewMeetupForm.module.css"
+import classes from "./NewMeetupForm.module.scss"
 
 export default function NewMeetupForm(props: { OnAddMeetup: Function }) {
 

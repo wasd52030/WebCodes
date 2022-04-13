@@ -1,4 +1,4 @@
-import classes from "./Card.module.css"
+import classes from "./Card.module.scss"
 
 export default function Card(Props: { children: JSX.Element }) {
     return (
