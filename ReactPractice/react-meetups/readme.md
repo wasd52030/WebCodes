@@ -2,6 +2,11 @@
 這玩意是在清明連假在ITHelp刷的某系列React文中的實踐範例，透過這次的閱讀，讓我對使用React來開發完整的網頁有了一些概念。
 
 # 參考文章
+## WTF IS Meetup
+
+https://taiwaneseyuyu.com/useful-apps-to-help-you-make-new-friends-in-us/
+
+
 ## ITHELP原文
 
 https://ithelp.ithome.com.tw/users/20134153/ironman/4072
