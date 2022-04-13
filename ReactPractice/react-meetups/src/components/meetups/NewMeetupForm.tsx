@@ -28,7 +28,7 @@ export default function NewMeetupForm(props: { OnAddMeetup: Function }) {
             <form className={classes.form} onSubmit={submitHandler}>
                 <div className={classes.control}>
                     <label htmlFor="title">Meetup Title</label>
-                    <input type="text" required id="title" ref={TitleHandler} />
+                    <input type="text" required id="title" ref={TitleHandler} placeholder="Please enter Meetup name" />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="image">Meetup Image</label>
@@ -37,18 +37,19 @@ export default function NewMeetupForm(props: { OnAddMeetup: Function }) {
                         required
                         id="image"
                         ref={ImageHandler}
-                        placeholder="Please enter image's full url,example: http://www.abc.com"
+                        placeholder="Please enter Meetup image's full url,example: http://www.abc.com"
                     />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="address">Meetup Address</label>
-                    <input type="text" required id="address" ref={AddressHandler} />
+                    <input type="text" required id="address" ref={AddressHandler} placeholder="Please enter Meetup address" />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="description">Description</label>
-                    <textarea required id="description" rows={5} ref={DescriptHandler} />
+                    <textarea required id="description" rows={5} ref={DescriptHandler} placeholder="Please enter Meetup Description" />
                 </div>
                 <div className={classes.actions}>
+                    <button type="reset">Reset</button>
                     <button>Add Meetup</button>
                 </div>
             </form>

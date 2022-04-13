@@ -36,6 +36,7 @@
     border: 1px solid #77002e;
     border-radius: 4px;
     font-weight: blod;
+    margin-left: 10px;
 }
 
 .actions button:hover,
