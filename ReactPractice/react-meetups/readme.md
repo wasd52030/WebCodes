@@ -6,7 +6,6 @@
 
 https://taiwaneseyuyu.com/useful-apps-to-help-you-make-new-friends-in-us/
 
-
 ## ITHELP原文
 
 https://ithelp.ithome.com.tw/users/20134153/ironman/4072
@@ -15,7 +14,7 @@ https://ithelp.ithome.com.tw/users/20134153/ironman/4072
 
 https://www.gss.com.tw/blog/react-context
 
-## Router
+## React Router
 
 https://ithelp.ithome.com.tw/articles/10204137
 
@@ -60,4 +59,4 @@ scss主要是配合[這玩意](https://marketplace.visualstudio.com/items?itemNa
 近期開始認真學React，一試便對JSX愛不釋手，個人覺得比以前寫著玩的Vue舒服多了XD(雖然Vue 3對JSX的支援也起來了na)。
 以前接觸前端比較多的是在後端的課上用JQuery做爆破式麵條，排版也一團糟，趁著這次修前端網頁框架的課，希望能對如何編排畫面有點概念。
 不過總覺自己刻出來的東西通常不會太陽間XDDDD
-實在沒想到的是，天天拿Meta老闆祖蜥蜴、微軟整間公司等大公司來玩梗，反倒用的順手的玩意(Meta: React; 微軟: Typescript、Vscode)卻掌握在他們手裡了XDDDDDDD
+實在沒想到的是，天天拿Meta老闆祖蜥蜴、微軟整間公司等大公司來玩梗，反倒用的順手的玩意(Meta(Facebook): React; 微軟: Typescript、Vscode)卻掌握在他們手裡了XDDDDDDD
