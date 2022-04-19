@@ -6,7 +6,7 @@ export default function NewMeetupPage() {
     const history = useHistory()
 
     //懶得做後端na，先把架構空著
-    function addMeetupHandler(Data: { title: string, image: string, address: string, description: string }) {
+    const addMeetupHandler = (Data: { title: string, image: string, address: string, description: string }) => {
         fetch(
             "",
             {

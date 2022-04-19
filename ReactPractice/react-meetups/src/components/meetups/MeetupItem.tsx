@@ -23,7 +23,7 @@ export default function MeetupItem(p: { meetup: Meetup }) {
     }
 
     return (
-        <div style={{height:"450px",width:"300px",margin:"0 15px"}}>
+        <div style={{ height: "450px", width: "300px", margin: "0 15px" }}>
             <Card>
                 <li className={classes.item}>
                     <div className={classes.image}>
@@ -36,7 +36,7 @@ export default function MeetupItem(p: { meetup: Meetup }) {
                     </div>
                     <div className={classes.actions}>
                         <button onClick={FavoriteStatusHandler}>
-                            {`${itemIsFavorite ? "Remove" : "Add"} to Favorites `}
+                            {`${itemIsFavorite ? "Remove from" : "Add to"}  Favorites `}
                         </button>
                     </div>
                 </li>
