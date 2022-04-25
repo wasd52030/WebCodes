@@ -2,7 +2,6 @@ import React from "react"
 import MenuItem from "./Menuitem"
 import Meal from "./MenuDEF"
 import Data from "./Data.json"
-import "./Menu.css"
 
 
 export default class Menu extends React.Component<{}, { menu: Meal[] }> {

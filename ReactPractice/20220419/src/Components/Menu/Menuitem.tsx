@@ -6,7 +6,7 @@ interface props {
 }
 
 export default function MenuItem(p: props) {
-    return ( //"card meal"
+    return (
         <div className={`${styles.card} ${styles.meal}`}>
             <div style={{ width: "100%", overflowY: "hidden" }}>
                 <img src={p.meal.url} alt="Load Error" style={{ width: "100%", height: "auto" }} />

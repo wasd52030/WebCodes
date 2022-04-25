@@ -1,0 +1,199 @@
+:root {
+  --header-height: 60px;
+}
+
+@font-face {
+  font-family: "BebasNeue";
+  src: local("BebasNeue"), url("./fonts/BebasNeue/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  height: 100%;
+  background-color: #121212;
+  color: white;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.app > .main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.app > .main > .list {
+  width: 50%;
+  min-width: 500px;
+  height: calc(100vh - var(--header-height));
+  margin: 6px 0px;
+}
+
+.app > .main > .list > .title {
+  margin-left: 18px;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Common List Item */
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.list-item:hover {
+  background-color: #303030;
+}
+
+.list-item .track-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  overflow: hidden;
+  flex: 1;
+  margin-right: 12px;
+}
+
+.list-item .track-wrapper .album-cover {
+  height: calc(100% - 12px);
+}
+
+.list-item .track-wrapper .column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: inherit;
+}
+
+.list-item .track-wrapper .column .label {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: inherit;
+}
+
+.list-item .download {
+  margin-left: auto;
+  margin-right: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 0 1 130px;
+  font-size: 14px;
+  color: #b1b1b1;
+}
+
+.list-item .icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.list-item .like-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 70px;
+  margin-right: 6px;
+}
+
+.list-item .like-wrapper .count {
+  flex: 1;
+  justify-self: center;
+  text-align: center;
+}
+
+.list-item .like-wrapper .like-icon {
+  fill: #ff8f7f;
+}
+
+.list-item .like-wrapper .dislike-icon {
+  fill: #b1b1b1;
+}
+
+.list-item .favorite-icon {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.list-item .favorite-icon.checked {
+  fill: #1db954;
+}
+
+.list-item .track-length {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* Ranking List */
+.ranking-list {
+  border-right: 1px solid #858585ba;
+}
+
+.ranking-list-item .play-icon {
+  fill: white;
+  margin: 0px 12px;
+}
+
+/* Favorite List */
+.favorite-list .remove-icon {
+  fill: white;
+  margin: 0px 12px;
+}
+
+.favorite-list .track-length {
+  margin-left: auto;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  height: var(--header-height);
+  padding: 6px 12px;
+}
+
+.header .logo {
+  font-size: 26px;
+  font-family: "BebasNeue";
+}
+
+.header .user-profile {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  height: 32px;
+  padding: 2px 6px;
+  align-items: center;
+  border-radius: 23px;
+}
+
+.header .user-profile .avatar {
+  width: 28px;
+}
