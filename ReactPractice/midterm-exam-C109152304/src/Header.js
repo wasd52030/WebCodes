@@ -6,7 +6,7 @@ export default function Header(props) {
       <span className="logo">NKUST Music</span>
       <span className="user-profile">
         <UserSVG className="avatar" />
-        <span className="name">{props.name}</span>
+        <span className="name">{props.id} {props.name}</span>
       </span>
     </div>
   )

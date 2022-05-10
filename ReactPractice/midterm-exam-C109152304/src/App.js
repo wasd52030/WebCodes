@@ -47,12 +47,12 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header name="C109152304 許智程" />
+        <Header id="C109152304" name="許智程" />
         <div className="main">
           <RankingList
-            tracks={tracks}
+            tracks={this.state.tracks}
             TotalLength={
-              tracks.reduce((previousValue, currentValue) => previousValue + currentValue.musicTime, 0)
+              this.state.tracks.reduce((previousValue, currentValue) => previousValue + currentValue.musicTime, 0)
             }
             handleToggleFavorite={this.handleToggleFavorite}
             handleIncreaseLikeCount={this.handleIncreaseLikeCount}
@@ -61,8 +61,8 @@ export default class App extends Component {
           <FavoriteList
             tracks={tracks}
             TotalLength={
-              tracks.filter(item => item.favorite === true)
-                    .reduce((previousValue, currentValue) => previousValue + currentValue.musicTime, 0)
+              this.state.tracks.filter(item => item.favorite === true)
+                .reduce((previousValue, currentValue) => previousValue + currentValue.musicTime, 0)
             }
             handleRemoveFavorite={this.handleRemoveFavorite}
           />

@@ -1,0 +1,24 @@
+li{
+  list-style-type: none;
+  margin-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #0000EE
+}
+
+a:visited {
+  color: #0000EE
+}
+
+a:hover {
+  color: #0000EE
+}
+
+a:active {
+  color: #0000EE
+}
