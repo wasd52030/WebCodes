@@ -6,7 +6,7 @@ import styles from "./Menu.module.scss"
 export default function Menu() {
     return (
         <BrowserRouter>
-            <div className={styles.menu}>
+            <div>
                 <div className={`ts-box ${styles.dishlist}`}>
                     {
                         Data.meals.map((item, index) => {
@@ -17,7 +17,7 @@ export default function Menu() {
                                             {item.name}
                                         </Link>
                                     </div>
-                                    {index != Data.meals.length-1 && <div className={`ts-divider ${styles.d}`}></div>}
+                                    {index != Data.meals.length - 1 && <div className={`ts-divider ${styles.d}`}></div>}
                                 </div>
 
                             )

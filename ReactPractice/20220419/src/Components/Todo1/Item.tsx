@@ -2,7 +2,6 @@ import Todo from "./TodoDEF"
 
 interface ItemProps {
     item: Todo,
-    index: number,
     DoneStateHandler: Function,
     CatchEdit: Function,
     OnDelete: Function
@@ -11,7 +10,7 @@ interface ItemProps {
 function Item(props: ItemProps) {
     return (
         <>
-            <div className="TodoItem" key={props.index}>
+            <div className="TodoItem">
                 <button
                     onClick={() => props.DoneStateHandler(props.item)}
                     className="StateCheck"

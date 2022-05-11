@@ -1,9 +1,9 @@
-import Todo from "./TodoDEF"
 import Item from "./Item"
+import Todo from "./TodoDEF"
 import TodoEdit from "./TodoEdit"
 
-interface ListProps {
-    Todos: Todo[],
+interface Props {
+    todos: Todo[],
     DoneStateHandler: Function,
     DoneState: string,
     CatchEdit: Function,
@@ -11,29 +11,25 @@ interface ListProps {
     EditHandler: Function,
 }
 
-
-export default function ItemList(props: ListProps) {
+export default function ItemList(props: Props) {
     return (
-        <div className={`Box ${(props.DoneState === "已完成") ? "Done" : "UnDone"}`}>
-            <span className="ListTitle">
-                {props.DoneState}項目
-            </span>
+        <div style={{ border: "1px solid", width: "800px" }}>
+            <h3 style={{ margin: "5px 0" }}>{props.DoneState}項目</h3>
             {
-                props.Todos.map((item, index) => {
+                props.todos.map((item, index) => {
                     return (
-                        item.editing && item.editable ?
+                        item.editing && !item.done ?
                             <TodoEdit
                                 key={index} index={index} Todo={item}
                                 EditHandler={props.EditHandler}
                             /> :
                             <Item
                                 key={index}
-                                item={item}
+                                todo={item}
                                 DoneStateHandler={props.DoneStateHandler}
                                 CatchEdit={props.CatchEdit}
                                 OnDelete={props.OnDelete}
                             />
-
                     )
                 })
             }
