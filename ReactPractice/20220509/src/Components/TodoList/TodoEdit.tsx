@@ -12,6 +12,7 @@ export default function TodoEdit(props: Props) {
             <input
                 type="text"
                 defaultValue={props.Todo.title}
+                placeholder="Press enter to change title"
                 autoFocus
 
                 onBlur={event => {
