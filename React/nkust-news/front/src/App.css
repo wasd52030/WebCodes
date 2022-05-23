@@ -1,0 +1,23 @@
+.App {
+  margin: 10px 3%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #0000EE
+}
+
+a:visited {
+  color: #0000EE
+}
+
+a:hover {
+  color: #0000EE
+}
+
+a:active {
+  color: #0000EE
+}
