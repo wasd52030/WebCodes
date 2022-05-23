@@ -55,48 +55,51 @@ export default function TodoList() {
                 </Link>
             </div>
 
-            <Switch>
-                <Route path='/Todo/New'>
-                    <TodoAdd OnAdd={addHandler} />
-                </Route>
-                <Route path='/Todo/Done'>
-                    {
-                        <ItemList
-                            todos={list.filter(item => item.done === true)}
-                            DoneState="已完成"
-                            DoneStateHandler={HandleDoneState}
-                            CatchEdit={CatchEdit}
-                            OnDelete={DeleteHandler}
-                            EditHandler={EditHandler}
-                        />
-                    }
-                </Route>
-                <Route path='/Todo/UnDone'>
-                    {
-                        <ItemList
-                            todos={list.filter(item => item.done !== true)}
-                            DoneState="未完成"
-                            DoneStateHandler={HandleDoneState}
-                            CatchEdit={CatchEdit}
-                            OnDelete={DeleteHandler}
-                            EditHandler={EditHandler}
-                        />
-                    }
-                </Route>
+            <div style={{ border: "1px solid", width: "800px" }}>
+                <Switch>
+                    <Route path='/Todo/New'>
+                        <TodoAdd OnAdd={addHandler} />
+                    </Route>
+                    <Route path='/Todo/Done'>
+                        {
+                            <ItemList
+                                todos={list.filter(item => item.done === true)}
+                                DoneState="已完成"
+                                DoneStateHandler={HandleDoneState}
+                                CatchEdit={CatchEdit}
+                                OnDelete={DeleteHandler}
+                                EditHandler={EditHandler}
+                            />
+                        }
+                    </Route>
+                    <Route path='/Todo/UnDone'>
+                        {
+                            <ItemList
+                                todos={list.filter(item => item.done !== true)}
+                                DoneState="未完成"
+                                DoneStateHandler={HandleDoneState}
+                                CatchEdit={CatchEdit}
+                                OnDelete={DeleteHandler}
+                                EditHandler={EditHandler}
+                            />
+                        }
+                    </Route>
 
-                {/* default route */}
-                <Route exact path='/'>
-                    <Redirect to='/Todo/Done' />
-                </Route>
+                    {/* default route */}
+                    <Route exact path='/'>
+                        <Redirect to='/Todo/Done' />
+                    </Route>
 
-                <Route
-                    render={() => {
-                        return (
-                            <div>404 Not Found</div>
-                        )
-                    }}
-                />
-            </Switch>
+                    <Route
+                        render={() => {
+                            return (
+                                <div>404 Not Found</div>
+                            )
+                        }}
+                    />
+                </Switch>
+            </div>
+
         </div>
     )
 }

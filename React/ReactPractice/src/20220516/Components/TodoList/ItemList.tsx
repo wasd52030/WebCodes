@@ -13,7 +13,7 @@ interface Props {
 
 export default function ItemList(props: Props) {
     return (
-        <div style={{ border: "1px solid", width: "800px" }}>
+        <div style={{margin:"10px"}}>
             <h3 style={{ margin: "5px 0" }}>{props.DoneState}項目</h3>
             {
                 props.todos.map((item, index) => {
