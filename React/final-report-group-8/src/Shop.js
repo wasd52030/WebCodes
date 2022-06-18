@@ -1,9 +1,10 @@
-import { useState } from "react"
-import { Link, Route, Switch, Redirect,useHistory } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link, Route, Switch, Redirect, useHistory, useLocation } from "react-router-dom"
 import Car from "./Car"
 import shopitem from "./data"
-import ShopAdd from "./Shopadd"
+
 import ShopItem from "./Shopitem"
+import ShopOptList from "./ShopOptList"
 
 
 
@@ -11,6 +12,8 @@ export default function Shop() {
 
     const [Shopitem, setShopitem] = useState(shopitem)
     const history = useHistory()
+    const current = useLocation()
+
 
     const ResetCar = () => {
         return Shopitem.reduce((past, curr) => {
@@ -18,14 +21,22 @@ export default function Shop() {
         }, {})
     }
 
+    useEffect(() => {
+        if (current.pathname === '/') {
+            setCaritems(() => ResetCar())
+            return
+        }
+    }, [current])
+
     const [caritems, setCaritems] = useState(() => ResetCar())
     const [reset, setReset] = useState(false)
-
     const onCarChange = (type, name, count) => {
         if (name === '') {
             setCaritems({ ...caritems, [type]: { name: "", price: 0, count: 1 } })
             return
         }
+        console.log(name)
+        console.log(Shopitem.filter(item => item.type === type)[0].saleitem)
         const query = (
             Shopitem.filter(item => item.type === type)[0]
                 .saleitem
@@ -45,9 +56,11 @@ export default function Shop() {
 
     const onNewShopitem = (newitem) => {
         //type name price
-        const items = Shopitem.filter(item=>item.type===newitem.type)[0]
+        const items = Shopitem.filter(item => item.type === newitem.type)[0]
         const flag = items.saleitem.filter((item) => item.name === newitem.name).length > 0
         if (flag) {
+            alert("品名不可重複")
+            history.replace('/list')
             return
         }
         setShopitem(Shopitem.map(item => {
@@ -56,22 +69,39 @@ export default function Shop() {
             }
             return item
         }))
-        history.replace('/')
+        history.replace('/list')
     }
+
+    const onDeleteitem = (target, type) => {
+        console.log(type)
+        setShopitem(Shopitem.map(item => {
+            if (item.type === type) {
+                return { ...item, saleitem: item.saleitem.filter(item => item.name !== target.name) }
+            }
+            return item
+        }))
+        history.replace('/list')
+    }
+
+    const onPriceUpdate = (target, type) => {
+        console.log(type)
+        setShopitem(Shopitem.map(item => {
+            if (item.type === type) {
+                return { ...item, saleitem: item.saleitem.map(item => item.name === target.name ? target : item) }
+            }
+            return item
+        }))
+        history.replace('/list')
+    }
+
 
     return (
         <Switch>
             <Route path="/car">
                 <center>
                     <div className="Shop" style={{ display: "flex" }}>
-                        <Link to="/add">
-                            增加商品
-                        </Link>
-                        <Link to="/add">
-                            編輯商品
-                        </Link>
-                        <Link to="/add">
-                            刪除商品
+                        <Link to="/list" style={{margin:"0"}}>
+                            商品管理
                         </Link>
                     </div>
                     <form className="Shop">
@@ -118,8 +148,13 @@ export default function Shop() {
                     </form>
                 </center>
             </Route>
-            <Route path='/add'>
-                <ShopAdd onNewShopitem={onNewShopitem} />
+            <Route path='/list'>
+                <ShopOptList
+                    list={Shopitem}
+                    onDeleteitem={onDeleteitem}
+                    onPriceUpdate={onPriceUpdate}
+                    onNewShopitem={onNewShopitem}
+                />
             </Route>
             <Route exact path='/'>
                 <Redirect to='/car' />
