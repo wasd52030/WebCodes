@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Shop from './Shop';
 
@@ -5,9 +6,11 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Shop />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Shop />
+      </div>
+    </BrowserRouter>
   );
 }
 

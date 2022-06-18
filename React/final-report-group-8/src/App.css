@@ -1,7 +1,11 @@
 .Shop {
-    margin-top: 50px;
+    margin-top: 10px;
     width: 100%;
     width: 860px;
+}
+
+a{
+    margin: 0 10px;
 }
 
 @page {
