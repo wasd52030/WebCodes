@@ -6,7 +6,11 @@ export default function Car(props) {
     return (
         <>
             <button
-                onClick={() => {window.print()}}
+                type='submit'
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.print()
+                }}
                 style={{ margin: "0px 10px" }}
             >
                 列印

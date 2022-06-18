@@ -1,5 +1,18 @@
-.Shop{
-    margin: 15px 22%;
+.Shop {
+    margin-top: 50px;
     width: 100%;
     width: 860px;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    form {
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
 }
