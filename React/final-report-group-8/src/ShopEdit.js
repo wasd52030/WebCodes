@@ -24,12 +24,12 @@ export default function ShopAdd(props) {
                 setItem(Object.assign(item, value))
                 if (item.name === '') {
                     alert('必須輸入品名')
+                    return
                 } else if (item.price < 0) {
                     alert('商品金額必須大於0')
+                    return
                 }
-                else {
-                    props.onPriceUpdate(item, props.type)
-                }
+                props.onPriceUpdate(item, props.type)
                 handleClose()
             })
             .catch((err) => {

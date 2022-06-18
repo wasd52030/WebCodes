@@ -22,17 +22,18 @@ export default function ShopAdd(props) {
                 setItem(Object.assign(item, value))
                 if (item.name === '') {
                     alert('必須輸入品名')
-                } else if (item.price < 0) {
+                    return
+                }
+                if (item.price < 0) {
                     alert('商品金額必須大於0')
+                    return
                 }
-                else {
-                    props.onNewShopitem(item)
-                    setItem(() => { return { name: '', price: 1 } })
-                }
+                props.onNewShopitem(item)
+                setItem(() => { return { name: '', price: 1 } })
                 handleClose()
             })
             .catch((err) => {
-                console.error(err)
+                alert('請重新輸入！')
                 handleClose()
             })
     }
@@ -43,11 +44,12 @@ export default function ShopAdd(props) {
             <Modal visible={visible} onOk={catchSubmit} onCancel={handleClose} destroyOnClose={true} forceRender >
                 <Form
                     form={form} name="add" style={{ marginTop: "20px" }}
-                    
+
                 >
                     <Form.Item
                         label="類別:"
                         name="type"
+                        rules={[{ required: true}]}
                         hasFeedback
                     >
                         <Select>
@@ -58,6 +60,7 @@ export default function ShopAdd(props) {
                         label="品名:"
                         name="name"
                         hasFeedback
+                        rules={[{ required: true, min: 1 }]}
                     >
                         <Input value={item.name} />
                     </Form.Item>
@@ -72,27 +75,5 @@ export default function ShopAdd(props) {
                 </Form>
             </Modal>
         </>
-        // <form onSubmit={catchSubmit}>
-        //     <div style={{ display: "flex", flexDirection: "column" }}>
-        //         <label htmlFor="type">
-        //             種類：
-        //             <select name="type" onChange={catchChange}>
-        //                 {shopitem.map((item, index) => <option key={index}>{item.type}</option>)}
-        //             </select>
-        //         </label>
-        //         <label htmlFor="name">
-        //             品名：
-        //             <input type="text" name="name" onChange={catchChange} />
-        //         </label>
-        //         <label htmlFor="price">
-        //             價格：
-        //             <input type="number" name="price" onChange={catchChange} />
-        //         </label>
-        //         <div style={{ marginTop: "5px" }}>
-        //             <button type="reset" style={{ marginRight: "5px" }}>重置</button>
-        //             <button type="submit">新增</button>
-        //         </div>
-        //     </div>
-        // </form>
     )
 }
