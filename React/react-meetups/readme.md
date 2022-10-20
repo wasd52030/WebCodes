@@ -2,35 +2,16 @@
 這玩意是在清明連假在ITHelp刷的某系列React文中的實踐範例，透過這次的閱讀，讓我對使用React來開發完整的網頁有了一些概念。
 
 # 參考文章
-## WTF IS Meetup
-
-https://taiwaneseyuyu.com/useful-apps-to-help-you-make-new-friends-in-us/
-
-## ITHELP原文
-
-https://ithelp.ithome.com.tw/users/20134153/ironman/4072
-
-## Context
-
-https://www.gss.com.tw/blog/react-context
-
-## React Router
-
-https://ithelp.ithome.com.tw/articles/10204137
-
-https://ithelp.ithome.com.tw/articles/10204451
-
-https://ithelp.ithome.com.tw/articles/10204787
-
-https://ithelp.ithome.com.tw/articles/10205106
-
-## CSS Modules
-
-https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
-
-## SCSS
-
-https://ithelp.ithome.com.tw/articles/10190746
+- WTF IS Meetup -> https://taiwaneseyuyu.com/useful-apps-to-help-you-make-new-friends-in-us/
+-  ITHELP原文 -> https://ithelp.ithome.com.tw/users/20134153/ironman/4072
+-  Context -> https://www.gss.com.tw/blog/react-context
+- React Router
+  - https://ithelp.ithome.com.tw/articles/10204137
+  - https://ithelp.ithome.com.tw/articles/10204451
+  - https://ithelp.ithome.com.tw/articles/10204787
+  - https://ithelp.ithome.com.tw/articles/10205106
+- CSS Modules -> https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
+- SCSS ->https://ithelp.ithome.com.tw/articles/10190746
 
 # 技術選型
 使用React+Typescript，構建工具使用Vite，Css預處理器使用scss。
