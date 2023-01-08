@@ -4,4 +4,5 @@
 前端的部分用的是原汁JS配fetch api寫完的，也算是對fetch api的一種練習吧，最讓我驚訝的是，fetch api竟然是瀏覽器的api而不是JS的標準
 
 下面是題目
+
 ![](https://i.imgur.com/gFDCFaC.png)
