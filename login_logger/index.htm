@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div style="margin: 5px;">
+            <div>
+                <div>註冊</div>
+                <div>
+                    <div>姓名: <input type="text" id="reg_name"></div>
+                    <div>帳號: <input type="text" id="reg_account"></div>
+                    <div>密碼: <input type="text" id="reg_password"></div>
+                </div>
+                <button id="reg">註冊</button>
+            </div>
+            <div>
+                <div>登入</div>
+                <div>
+                    <div>帳號: <input type="text" id="login_account"></div>
+                    <div>密碼: <input type="text" id="login_password"></div>
+                </div>
+                <button id="login">登入</button>
+            </div>
+        </div>
+        <div id="accounts" style="margin-right: 5px;">
+        </div>
+        <div id="login_info">
+        </div>
+    </div>
+</body>
+
+<script>
+    var form = new FormData()
+
+    document.addEventListener("DOMContentLoaded", function () {
+        function getAccounts() {
+            fetch(
+                'http://localhost/login_logger/main.php?action=get_accounts',
+                { method: 'GET', }
+            ).then(res => res.json())
+                .then(res => {
+                    let x = '使用者:'
+                    if (res['status'] === 200) {
+                        if (res['data'].length !== 0) {
+                            res['data'].forEach(item => {
+                                x += (
+                                    `<div style="margin-top: 5px;">
+                                    <div>編號:${item['UserID']}</div>
+                                    <div>使用者:${item['name']}</div>
+                                    <div>帳號:${item['account']}</div>
+                                    <div>密碼:${item['PassWord']}</div>
+                                </div>`
+                                )
+                            })
+                        }
+                        document.getElementById('accounts').innerHTML = x
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+        function getLog() {
+            fetch(
+                'http://localhost/login_logger/main.php?action=get_logs',
+                { method: 'GET', }
+            ).then(res => res.json())
+                .then(res => {
+                    let x = '登入紀錄:'
+                    if (res['status'] === 200) {
+                        if (res['data'].length !== 0) {
+                            res['data'].forEach(item => {
+                                x += (
+                                    `<div style="margin-top: 5px;">
+                                    <div>編號:${item['id']}</div>
+                                    <div>使用者:${item['user']}</div>
+                                    <div>登入時間:${item['time']}</div>
+                                </div>`
+                                )
+                            })
+                        }
+                    }
+                    document.getElementById('login_info').innerHTML = x
+                })
+                .catch(err => console.log(err))
+        }
+        getAccounts()
+        getLog()
+
+        document.getElementById("reg").onclick = () => {
+            let data = {
+                'name': document.getElementById("reg_name").value,
+                'account': document.getElementById("reg_account").value,
+                'password': document.getElementById("reg_password").value,
+            }
+            Object.keys(data).forEach(key => form.append(key, data[key]))
+
+            fetch(
+                'http://localhost/login_logger/main.php?action=reg',
+                {
+                    method: 'POST',
+                    body: form
+                }
+            ).then(res => res.json())
+                .then(res => {
+                    if (res['status'] === 200) {
+                        getAccounts()
+                        document.getElementById("reg_name").value = ''
+                        document.getElementById("reg_account").value = ''
+                        document.getElementById("reg_password").value = ''
+                    }
+                })
+                .catch(err => console.log(err))
+
+        }
+
+        document.getElementById("login").onclick = () => {
+            let data = {
+                'account': document.getElementById("login_account").value,
+                'password': document.getElementById("login_password").value,
+            }
+            Object.keys(data).forEach(key => form.append(key, data[key]))
+
+            fetch(
+                'http://localhost/login_logger/main.php?action=login',
+                {
+                    method: 'POST',
+                    body: form
+                }
+            ).then(res => res.json())
+                .then(res => {
+                    if (res['status'] === 200) {
+                        if (res['data'].length !== 0) {
+                            data = {
+                                'user': res['data'][0]['name'],
+                                'time': new Date().toLocaleString(),
+                            }
+                            Object.keys(data).forEach(key => form.append(key, data[key]))
+                            fetch(
+                                'http://localhost/login_logger/main.php?action=log',
+                                {
+                                    method: 'POST',
+                                    body: form
+                                }
+                            ).then(res => res.json())
+                                .then(res => {
+                                    if (res['status'] === 200) {
+                                        getLog()
+                                    }
+                                })
+                                .catch(err => console.log(err))
+                        } else {
+                            alert('查無此帳號')
+                        }
+                        document.getElementById("login_account").value = ''
+                        document.getElementById("login_password").value = ''
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    })
+</script>
+
+</html>
