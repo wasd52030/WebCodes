@@ -7,8 +7,8 @@ $data=array($name,$addr,$birth,$id);
 
 $db_host = 'localhost';
 $db_name = 'n';
-$db_user = 'root';
-$db_password = '';
+$db_user = 'a';
+$db_password = '123456';
 $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
 
 try {

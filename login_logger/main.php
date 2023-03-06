@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_GET['action'])) {
     $act = $_GET['action'];
 } else {

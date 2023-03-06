@@ -11,3 +11,27 @@
 想想以前單幹好像也是懶得跟別人溝(ㄔㄠˇ)通(ㄐㄧㄚˋ)呢，雖然一群sohai抱大腿的情況更為常見，而且自幹還能往裡面加料，這就是所謂的苦中作樂(？
 
 歐對了，單幹對source code的掌控度也是最高的，因此，這次能不能幹到整套source code還不知道，不過機會不大XDDDD
+
+
+
+## 上課紀錄
+
+- 2023/02/20 $\rightarrow$ 學期第一堂課，講解評分標準
+- 2023/02/27 $\rightarrow$ 228連假
+- 2023/03/06
+  - 提出專案規畫並討論
+  - 指定使用技術
+    - 網頁 $\rightarrow$ React
+    - App $\rightarrow$ React Native
+    - 後端 $\rightarrow$ php框架`Lumen`
+    - DB(八成是mysql)
+  - 架設`Lumen`環境(假設php環境已齊備)
+    1. 裝`composer`
+  - `Lumen`專案建立(Prjname替換成專案名稱)
+    - `composer create-project --prefer-dist laravel/lumen Prjname`
+  - 啟動專案的兩種方式
+    1. 使用php內建簡易webServer $\rightarrow$ `php -S localhost:8000 -t public`
+       - **沒法被xdebug抓到，哭R**
+    2. 專案整包丟進類似xampp的環境裡面
+       - **可以被xdebug抓到，好欸**
+
