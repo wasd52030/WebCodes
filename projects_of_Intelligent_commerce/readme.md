@@ -34,4 +34,11 @@
        - **沒法被xdebug抓到，哭R**
     2. 專案整包丟進類似xampp的環境裡面
        - **可以被xdebug抓到，好欸**
-
+  
+- 20220313
+  - 討論期末專題細項
+  - 作業 $\rightarrow$ 練習Apache Document Root
+- 20220320
+  - 討論期末專題細項
+  - 作業 $\rightarrow$ 練習Apache vhost
+    - 在此設定Apache vhost domain name為`abcdcba.com`
