@@ -27,8 +27,8 @@
     - DB(八成是mysql)
   - 架設`Lumen`環境(假設php環境已齊備)
     1. 裝`composer`
-  - `Lumen`專案建立(Prjname替換成專案名稱)
-    - `composer create-project --prefer-dist laravel/lumen Prjname`
+  - `Lumen`專案建立(ProjectName替換成專案名稱)
+    - `composer create-project --prefer-dist laravel/lumen ProjectName`
   - 啟動專案的兩種方式
     1. 使用php內建簡易webServer $\rightarrow$ `php -S localhost:8000 -t public`
        - **沒法被xdebug抓到，哭R**
@@ -41,4 +41,7 @@
 - 20220320
   - 討論期末專題細項
   - 作業 $\rightarrow$ 練習Apache vhost
-    - 在此設定Apache vhost domain name為`abcdcba.com`
+    - 在此設定Apache vhost domain name為`pabcdcba.com`
+- 2023/03/27
+  - 討論期末專題細項
+- 2023/04/3 $\rightarrow$ 清明連假
