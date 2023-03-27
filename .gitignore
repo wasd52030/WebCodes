@@ -3,5 +3,5 @@ node_modules
 *.exe
 .gitignore
 .vscode
-**/*.ptt
-**/*.pttx
+*/*.ptt
+*/*.pttx
