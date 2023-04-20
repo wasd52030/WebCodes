@@ -34,7 +34,6 @@
        - **沒法被xdebug抓到，哭R**
     2. 專案整包丟進類似xampp的環境裡面
        - **可以被xdebug抓到，好欸**
-  
 - 20220313
   - 討論期末專題細項
   - 作業 $\rightarrow$ 練習Apache Document Root
@@ -44,4 +43,7 @@
     - 在此設定Apache vhost domain name為`pabcdcba.com`
 - 2023/03/27
   - 討論期末專題細項
-- 2023/04/3 $\rightarrow$ 清明連假
+- 2023/04/03 $\rightarrow$ 清明連假
+- 2023/04/10
+- 2023/04/17
+  - Lumen框架探討

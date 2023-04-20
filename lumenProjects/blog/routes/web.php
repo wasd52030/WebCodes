@@ -18,7 +18,22 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/a', function () use ($router) {
-    return response()
-        ->json(['result' => 345, 'message' => 'aaa']);
+$router->get('/hello', function () {
+    return "Hello world!";
 });
+
+$name = "John";
+$router->get('/hellosomeone', function () use ($name) {
+    return "Hello $name";
+});
+
+$router->get('/ControllerSample', "ControllerSample@helloController");
+
+$router->get('/ControllerSample/{name}', "ControllerSample@hello");
+$router->get('/ControllerSample/{a}/{b}', "ControllerSample@add");
+
+$router->get('/getAllUsers', "User@getAllUsers");
+$router->get('/getUser/{id}', "User@getUser");
+$router->post('/addUser', "User@addUser");
+$router->put('/updateUser', "User@updateUser");
+$router->delete('/deleteUser', "User@deleteUser");
