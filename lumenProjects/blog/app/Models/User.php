@@ -29,7 +29,7 @@ class User
     public function addUser($id, $pwd, $email, $phone)
     {
         $sql = "insert into user (id, pwd, email, phone) values (:id, :pwd, :email, :phone)";
-        $response = DB::insert($sql, ["id" => $id, "pwd" => $pwd, "email" => $email, "phone" => $phone]);
+        $response = DB::insert($sql, ["id" => null, "pwd" => $pwd, "email" => $email, "phone" => $phone]);
         return $response;
     }
 

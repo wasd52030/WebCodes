@@ -32,8 +32,8 @@ $router->get('/ControllerSample', "ControllerSample@helloController");
 $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@add");
 
-$router->get('/getAllUsers', "User@getAllUsers");
-$router->get('/getUser/{id}', "User@getUser");
-$router->post('/addUser', "User@addUser");
-$router->put('/updateUser', "User@updateUser");
-$router->delete('/deleteUser', "User@deleteUser");
+$router->get('/user', "User@getAllUsers");
+$router->get('/user/{id}', "User@getUser");
+$router->post('/user', "User@addUser");
+$router->put('/user/{id}', "User@updateUser");
+$router->delete('/user/{id}', "User@deleteUser");

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User as UserModel;
 use Illuminate\Http\Request;
+use App\Http\Utils\StandardResponse;
 
 class User extends Controller
 {
@@ -15,13 +16,21 @@ class User extends Controller
 
     public function getAllUsers()
     {
-        return $this->User->showAll();
+        $dbRes = $this->User->showAll();
+        if (count($dbRes) != 0) {
+            return StandardResponse::res(200, '查詢成功', $dbRes);
+        }
+        return StandardResponse::res(204, '無查詢結果');
     }
 
 
     public function getUser($id)
     {
-        return $this->User->showUser($id);
+        $dbRes = $this->User->showUser($id);
+        if (count($dbRes) != 0) {
+            return StandardResponse::res(200, '查詢成功', $dbRes);
+        }
+        return StandardResponse::res(204, '無查詢結果');
     }
 
     public function addUser(Request $request)
@@ -30,21 +39,33 @@ class User extends Controller
         $password = $request->input("pwd");
         $email = $request->input("email");
         $phone = $request->input("phone");
-        return $this->User->addUser($id, $password, $phone, $email);
+
+        $dbRes = $this->User->addUser($id, $password, $phone, $email);
+        if ($dbRes == 1) {
+            return StandardResponse::res(200, '新增成功', $dbRes);
+        }
+        return StandardResponse::res(204, '新增成功');
     }
 
-    public function updateUser(Request $request)
+    public function updateUser(Request $request, $id)
     {
-        $id = $request->input("id");
         $password = $request->input("pwd");
         $email = $request->input("email");
         $phone = $request->input("phone");
-        return $this->User->updateUser($id, $password, $email, $phone);
+
+        $dbRes = $this->User->updateUser($id, $password, $email, $phone);
+        if ($dbRes == 1) {
+            return StandardResponse::res(200, '修改成功', $dbRes);
+        }
+        return StandardResponse::res(204, '修改成功');
     }
 
-    public function deleteUser(Request $request)
+    public function deleteUser($id)
     {
-        $id = $request->input("id");
-        return $this->User->deleteUser($id);
+        $dbRes = $this->User->deleteUser($id);
+        if ($dbRes == 1) {
+            return StandardResponse::res(200, '刪除成功', $dbRes);
+        }
+        return StandardResponse::res(204, '刪除成功');
     }
 }
