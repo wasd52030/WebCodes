@@ -44,7 +44,7 @@ class User extends Controller
         if ($dbRes == 1) {
             return StandardResponse::res(200, '新增成功', $dbRes);
         }
-        return StandardResponse::res(204, '新增成功');
+        return StandardResponse::res(204, '新增失敗');
     }
 
     public function updateUser(Request $request, $id)
@@ -57,7 +57,7 @@ class User extends Controller
         if ($dbRes == 1) {
             return StandardResponse::res(200, '修改成功', $dbRes);
         }
-        return StandardResponse::res(204, '修改成功');
+        return StandardResponse::res(204, '修改失敗');
     }
 
     public function deleteUser($id)
@@ -66,6 +66,6 @@ class User extends Controller
         if ($dbRes == 1) {
             return StandardResponse::res(200, '刪除成功', $dbRes);
         }
-        return StandardResponse::res(204, '刪除成功');
+        return StandardResponse::res(204, '刪除失敗');
     }
 }
