@@ -36,11 +36,11 @@ class User extends Controller
     public function addUser(Request $request)
     {
         $id = $request->input("id");
-        $password = $request->input("pwd");
+        $name = $request->input("name");
         $email = $request->input("email");
         $phone = $request->input("phone");
 
-        $dbRes = $this->User->addUser($id, $password, $phone, $email);
+        $dbRes = $this->User->addUser($id, $name, $phone, $email);
         if ($dbRes == 1) {
             return StandardResponse::res(200, '新增成功', $dbRes);
         }
@@ -49,11 +49,11 @@ class User extends Controller
 
     public function updateUser(Request $request, $id)
     {
-        $password = $request->input("pwd");
+        $name = $request->input("name");
         $email = $request->input("email");
         $phone = $request->input("phone");
 
-        $dbRes = $this->User->updateUser($id, $password, $email, $phone);
+        $dbRes = $this->User->updateUser($id, $name, $email, $phone);
         if ($dbRes == 1) {
             return StandardResponse::res(200, '修改成功', $dbRes);
         }

@@ -26,17 +26,17 @@ class User
         return $response;
     }
 
-    public function addUser($id, $pwd, $email, $phone)
+    public function addUser($id, $name, $email, $phone)
     {
-        $sql = "insert into user (id, pwd, email, phone) values (:id, :pwd, :email, :phone)";
-        $response = DB::insert($sql, ["id" => null, "pwd" => $pwd, "email" => $email, "phone" => $phone]);
+        $sql = "insert into user (id, name, email, phone) values (:id, :name, :email, :phone)";
+        $response = DB::insert($sql, ["id" => null, "name" => $name, "email" => $email, "phone" => $phone]);
         return $response;
     }
 
-    public function updateUser($id, $pwd, $email, $phone)
+    public function updateUser($id, $name, $email, $phone)
     {
-        $sql = "update user set phone=:phone, pwd=:pass, email=:email where id=:id";
-        $response = DB::update($sql, ["id" => $id, "pass" => $pwd, "email" => $email, "phone" => $phone]);
+        $sql = "update user set phone=:phone, name=:pass, email=:email where id=:id";
+        $response = DB::update($sql, ["id" => $id, "pass" => $name, "email" => $email, "phone" => $phone]);
         return $response;
     }
 
