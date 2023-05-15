@@ -14,6 +14,10 @@
 
 
 
+2023/05/15回音) $\rightarrow$ 這門課的報告幾乎組中都是提議拿專題的同學在C，好久沒在偏技術又要分組的課上混分了XDD，不過還是有點擔心他們突然反手就把我送下去啊XDDDD
+
+
+
 ## 上課紀錄
 
 - 2023/02/20 $\rightarrow$ 學期第一堂課，講解評分標準
@@ -31,11 +35,11 @@
     - `composer create-project --prefer-dist laravel/lumen ProjectName`
   - 啟動專案的兩種方式
     1. 使用php內建簡易webServer $\rightarrow$ `php -S localhost:8000 -t public`
-       - **沒法被xdebug抓到，哭R**
+       - **沒法被xdebug抓到**
     2. 專案整包丟進類似xampp的環境裡面
-       - **可以被xdebug抓到，好欸**
+       - **可以被xdebug抓到**
 - 20220313
-  - 討論期末專題細項
+  - 探討期末專題細項
   - 作業 $\rightarrow$ 練習Apache Document Root
 - 20220320
   - 討論期末專題細項
@@ -47,3 +51,9 @@
 - 2023/04/10
 - 2023/04/17
   - Lumen框架探討
+  - Restful api簡介
+- 2023/04/24
+- 2023/05/01
+- 2023/05/08
+- 2023/05/15
+  - api list探討
