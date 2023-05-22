@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class ExampleMiddleware
+class MiddlewareB
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,7 @@ class ExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
+        echo "MiddleWare B！\n";
         return $next($request);
     }
 }
