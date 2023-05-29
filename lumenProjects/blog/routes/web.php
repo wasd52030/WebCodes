@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+
 use illuminate\Http\Response;
 
 /*
@@ -32,7 +33,10 @@ $router->get('/ControllerSample', "ControllerSample@helloController");
 $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@add");
 
-$router->get('/user', "User@getAllUsers");
+$router->get('/user', [
+    'middleware' => ['a: admin', 'b: user'],
+    'uses' => "User@getAllUsers"
+]);
 $router->get('/user/{id}', "User@getUser");
 $router->post('/user', "User@addUser");
 $router->put('/user/{id}', "User@updateUser");

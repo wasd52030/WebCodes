@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class MiddlewareA
+class EnsureRoles
 {
     /**
      * Handle an incoming request.
@@ -13,10 +13,9 @@ class MiddlewareA
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$args)
+    public function handle($request, Closure $next)
     {
-        echo "MiddleWare A！\n";
-        echo "Args: $args\n";
+        echo "EnsureRoles！\n";
         return $next($request);
     }
 }

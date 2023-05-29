@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Http\Utils\StandardResponse;
 use App\Models\Account as AccountModel;
 
+use \Exception;
+
 class Authenticate
 {
     /**
@@ -63,7 +65,7 @@ class Authenticate
             $payload = JWT::decode($jwtToken, new Key($secret_key, 'HS256'));
             return true;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            // echo $e->getMessage();
             return false;
         }
     }
@@ -84,36 +86,38 @@ class Authenticate
         //     return response('Unauthorized.', 401);
         // }
         // return $next($request);
-
         switch ($request->path()) {
             case 'login':
                 $content = $request->getContent();
                 $param = [];
                 parse_str($content, $param);
                 //查詢DB驗證帳密的正確性
-                $dbRes=$this->account->getAccount($param["account"]);
-                if (count($dbRes)>0) {
-                    $data=$dbRes[0];
-                    if ($param["account"]==$data->account&&$param["password"]==$data->PassWord) {
+                $dbRes = $this->account->getAccount($param["account"]);
+                if (count($dbRes) > 0) {
+                    $data = $dbRes[0];
+                    if ($param["account"] == $data->account && $param["password"] == $data->PassWord) {
                         $token = $this->genToken($param["account"]);
-                        return response($token,200);
+                        return response($token, 200);
+                    } else if ($param["password"] != $data->PassWord) {
+                        return response("密碼錯誤", 203);
                     }
-                    return response("帳號錯誤或密碼錯誤",200);
+                } else {
+                    return response("找不到使用者", 404);
                 }
-                return response("找不到帳號",200);
+                return response("找不到帳號", 200);
                 break;
             case 'register':
                 $content = $request->getContent();
                 $param = [];
                 parse_str($content, $param);
-                $res=$this->account->register($param["account"],$param["password"],$param["name"]);
-                return response($res['message'],200);
+                $res = $this->account->register($param["account"], $param["password"], $param["name"]);
+                return response($res['message'], 200);
                 break;
             default:
                 if ($this->checkToken($request)) {
                     return $next($request);
                 }
-                return response('無效Token', 401);
+                return response('尚未登入', 401);
                 break;
         }
     }

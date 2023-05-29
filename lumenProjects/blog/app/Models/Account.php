@@ -15,7 +15,7 @@ class Account
     public function register($account, $password, $name)
     {
         if (count($this->getAccount($account)) != 0) {
-            return ["message" => "帳號已存在"];
+            return ["message" => "帳號重複"];
         }
 
         $sql = "INSERT INTO account (UserID,name, account,PassWord) VALUES (:id, :name, :account, :password)";
