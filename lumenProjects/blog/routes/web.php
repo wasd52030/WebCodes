@@ -33,11 +33,27 @@ $router->get('/ControllerSample', "ControllerSample@helloController");
 $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@add");
 
-$router->get('/user', [
-    'middleware' => ['a: admin', 'b: user'],
-    'uses' => "User@getAllUsers"
-]);
+$router->post('/register', ['middleware' => ['auth'], function () {
+    return '註冊成功';
+}]);
+
+$router->post('/login', ['middleware' => ['auth'], function () {
+    return '登入成功';
+}]);
+
+$router->get('/user', "User@getAllUsers");
 $router->get('/user/{id}', "User@getUser");
-$router->post('/user', "User@addUser");
-$router->put('/user/{id}', "User@updateUser");
-$router->delete('/user/{id}', "User@deleteUser");
+
+
+$router->post('/user', [
+    'middleware' => ['auth', 'role'],
+    'uses' => "User@addUser"
+]);
+$router->put('/user/{id}', [
+    'middleware' => ['auth', 'role'],
+    'uses' => "User@updateUser"
+]);
+$router->delete('/user/{id}', [
+    'middleware' => ['auth', 'role'],
+    'uses' => "User@deleteUser"
+]);

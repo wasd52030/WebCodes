@@ -88,17 +88,16 @@ class Authenticate
         // return $next($request);
         switch ($request->path()) {
             case 'login':
-                $content = $request->getContent();
-                $param = [];
-                parse_str($content, $param);
+                $account = $request->input("account");
+                $password = $request->input("password");
                 //查詢DB驗證帳密的正確性
-                $dbRes = $this->account->getAccount($param["account"]);
+                $dbRes = $this->account->getAccount($account);
                 if (count($dbRes) > 0) {
                     $data = $dbRes[0];
-                    if ($param["account"] == $data->account && $param["password"] == $data->PassWord) {
-                        $token = $this->genToken($param["account"]);
+                    if ($account == $data->account && $password == $data->PassWord) {
+                        $token = $this->genToken($account);
                         return response($token, 200);
-                    } else if ($param["password"] != $data->PassWord) {
+                    } else if ($password != $data->PassWord) {
                         return response("密碼錯誤", 203);
                     }
                 } else {
@@ -107,10 +106,10 @@ class Authenticate
                 return response("找不到帳號", 200);
                 break;
             case 'register':
-                $content = $request->getContent();
-                $param = [];
-                parse_str($content, $param);
-                $res = $this->account->register($param["account"], $param["password"], $param["name"]);
+                $account = $request->input("account");
+                $password = $request->input("password");
+                $name = $request->input("name");
+                $res = $this->account->register($account, $password, $name);
                 return response($res['message'], 200);
                 break;
             default:

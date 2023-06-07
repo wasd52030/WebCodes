@@ -75,14 +75,13 @@ $app->configure('app');
 $app->middleware([
     // App\Http\Middleware\MiddlewareA::class,
     // App\Http\Middleware\MiddlewareB::class,
-    App\Http\Middleware\Authenticate::class,
+    // App\Http\Middleware\Authenticate::class,
     // App\Http\Middleware\CheckPrevilege::class,
 ]);
 
 $app->routeMiddleware([
     "auth" => App\Http\Middleware\Authenticate::class,
-    "a" => App\Http\Middleware\MiddlewareA::class,
-    "b" => App\Http\Middleware\MiddlewareB::class
+    "role" => App\Http\Middleware\CheckPrevilege::class
 ]);
 
 /*
