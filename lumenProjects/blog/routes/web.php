@@ -4,6 +4,9 @@
 
 use illuminate\Http\Response;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -57,3 +60,13 @@ $router->delete('/user/{id}', [
     'middleware' => ['auth', 'role'],
     'uses' => "User@deleteUser"
 ]);
+
+
+$router->get('mailtest/{email}',function (string $email){
+    try {
+        Mail::to($email)->send(new WelcomeEmail($email,"Jack"));
+        return "send Success";
+    }catch (Exception $e){
+        return $e;
+    }
+});

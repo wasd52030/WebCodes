@@ -4,3 +4,4 @@ node_modules
 .gitignore
 .vscode
 *.pptx
+lumenProjects/blog/config/mail.php

@@ -1,5 +1,7 @@
 <?php
 
+use PhanAn\CascadingConfig\CascadingConfigServiceProvider;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -116,4 +118,12 @@ $app->router->group([
     require __DIR__ . '/../routes/web.php';
 });
 
+$app->register(CascadingConfigServiceProvider::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
+$app->configure('mail');
+$app->alias('mail.manager', Illuminate\Mail\MailManager::class);
+$app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
+$app->alias('mailer', Illuminate\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 return $app;
